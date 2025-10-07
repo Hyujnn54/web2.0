@@ -22,6 +22,9 @@ class Book
     #[ORM\Column]
     private ?bool $published = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Book
     public function setPublished(bool $published): static
     {
         $this->published = $published;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): static
+    {
+        $this->author = $author;
 
         return $this;
     }
